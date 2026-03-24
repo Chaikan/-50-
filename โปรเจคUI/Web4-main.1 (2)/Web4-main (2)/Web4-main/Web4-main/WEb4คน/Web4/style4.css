@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Segoe UI, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 80px;
+
+}
+
+/* NAVBAR */
+nav {
+    background: #020617;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav h2 {
+    color: #38bdf8;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #e2e8f0;
+}
+
+/* ปุ่ม ☰ */
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ซ่อน checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* ================= container ======================= */
+.container {
+    margin: auto;
+    margin-top: 100px;
+    max-width: 420px;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.mb-3 {
+    line-height: 1.8;
+    color: #cbd5f5;
+}
+
+textarea {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+}
+
+/* ================= footer ======================= */
+
+/* บังคับให้หน้าเว็บสูงเต็มจอ */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ยืดตามความสูงจอ */
+    background-color: #0f172a; /* สีพื้นหลังพื้นฐาน */
+}
+
+/* ส่วนเนื้อหาหลักจะกินพื้นที่ที่เหลือทั้งหมด */
+.content-area {
+    flex: 1 0 auto;
+}
+
+/* ปรับแต่ง Footer */
+.site-footer {
+    flex-shrink: 0; /* ป้องกันไม่ให้ Footer โดนบีบ */
+    background: #020617;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.site-footer p {
+    margin: 0; /* ลบ margin ของ p ออกเพื่อความเป๊ะ */
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+    nav {
+        padding: 15px 20px;
+    }
+
+    /* แสดงปุ่ม ☰ */
+    .menu-icon {
+        display: block;
+    }
+
+    /* ซ่อนเมนูปกติ */
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: #020617;
+        width: 200px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    /* กด ☰ แล้วแสดงเมนู */
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+}
