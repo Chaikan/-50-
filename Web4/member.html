@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมาชิก</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== TITLE ===== */
+        .page-title {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 34px;
+            color: #38bdf8;
+        }
+
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* ===== CARD ===== */
+        .member-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .member-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #38bdf8;
+        }
+
+        .member-card h3 {
+            color: #38bdf8;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 🔥 กล่องใหญ่ขึ้น */
+        .modal-content {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 550px;
+            position: relative;
+            animation: pop 0.3s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* 🔥 รูปใหญ่ขึ้น */
+        .modal-content img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #38bdf8;
+        }
+
+        /* 🔥 ตัวหนังสือใหญ่ขึ้น */
+        .modal-content h2 {
+            font-size: 26px;
+            color: #38bdf8;
+        }
+
+        .modal-content p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+  <nav>
+    <h2>Internet Security</h2>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <ul class="menu-main">
+        <li><a href="index.html">หน้าแรก</a></li>
+
+        <li class="dropdown">
+            <a href="#" onclick="toggleDropdown(event)">เนื้อหา ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="phishing.html">Phishing</a></li>
+                <li><a href="password.html">Password</a></li>
+                <li><a href="virus.html">Virus</a></li>
+            </ul>
+        </li>
+
+        <li><a href="member.html">สมาชิก</a></li>
+        <li><a href="contact.html">ติดต่อ</a></li>
+    </ul>
+</nav>
+
+    <!-- TITLE -->
+    <h1 class="page-title">สมาชิกของเรา</h1>
+
+    <!-- GRID -->
+    <div class="grid">
+
+        <div class="member-card" onclick="openModal('tanakorn')">
+            <img src="pic/8d526cfb-7bd1-4ab6-aec5-87c4eb373a5f.jpg">
+            <h3>นาย ธนากร สุนทร</h3>
+            <p>68091781</p>
+        </div>
+
+        <div class="member-card" onclick="openModal('chai')">
+            <img src="pic/unnamed.jpg">
+            <h3>นาย ชัยกัลป์ วันดี</h3>
+            <p>68092286</p>
+        </div>
+
+        <div class="member-card" onclick="openModal('china')">
+            <img src="pic/b0458208-7d9d-44f3-bbf8-20d2d8d7d494.jpg">
+            <h3>นาย ชินาธิป ศรีวรานนท์</h3>
+            <p>68108992</p>
+        </div>
+
+        <div class="member-card" onclick="openModal('phop')">
+            <img src="pic/102aefa7-7595-4638-8652-3645510a17a4.jpg">
+            <h3>นาย ภพธร วระนุช</h3>
+            <p>68092022</p>
+        </div>
+
+    </div>
+
+    <!-- MODAL -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-img">
+            <h2 id="modal-name"></h2>
+            <p id="modal-id"></p>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function openModal(member) {
+            const data = {
+                tanakorn: {
+                    name: "นาย ธนากร สุนทร",
+                    id: "68091781",
+                    img: "pic/8d526cfb-7bd1-4ab6-aec5-87c4eb373a5f.jpg"
+                },
+                chai: {
+                    name: "นาย ชัยกัลป์ วันดี",
+                    id: "68092286",
+                    img: "pic/unnamed.jpg"
+                },
+                china: {
+                    name: "นาย ชินาธิป ศรีวรานนท์",
+                    id: "68108992",
+                    img: "pic/b0458208-7d9d-44f3-bbf8-20d2d8d7d494.jpg"
+                },
+                phop: {
+                    name: "นาย ภพธร วระนุช",
+                    id: "68092022",
+                    img: "pic/102aefa7-7595-4638-8652-3645510a17a4.jpg"
+                }
+            };
+
+            document.getElementById("modal-img").src = data[member].img;
+            document.getElementById("modal-name").innerText = data[member].name;
+            document.getElementById("modal-id").innerText = data[member].id;
+
+            document.getElementById("memberModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("memberModal").style.display = "none";
+        }
+
+        window.onclick = function(e) {
+            const modal = document.getElementById("memberModal");
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+ <script>
+function toggleMenu() {
+    document.querySelector(".menu-main").classList.toggle("active");
+}
+
+function toggleDropdown(e) {
+    e.preventDefault();
+    let dropdown = e.target.nextElementSibling;
+    dropdown.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

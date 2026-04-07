@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== DEMO ===== */
+        .demo-box {
+            background: #111827;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .fake-email {
+            background: #1f2937;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .fake-email button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background: #ef4444;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .fake-email button:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== POPUP ===== */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #0f172a;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            animation: pop 0.3s;
+        }
+
+        .popup-content button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            border: none;
+            background: #38bdf8;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.7); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Internet Security</h2>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <ul class="menu-main">
+        <li><a href="index.html">หน้าแรก</a></li>
+
+        <li class="dropdown">
+            <a href="#" onclick="toggleDropdown(event)">เนื้อหา ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="phishing.html">Phishing</a></li>
+                <li><a href="password.html">Password</a></li>
+                <li><a href="virus.html">Virus</a></li>
+            </ul>
+        </li>
+
+        <li><a href="member.html">สมาชิก</a></li>
+        <li><a href="contact.html">ติดต่อ</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Phishing คืออะไร</h2>
+
+        <p>
+            Phishing คือการหลอกลวงทางอินเทอร์เน็ตที่ผู้ไม่หวังดี
+            พยายามทำให้เหยื่อเปิดเผยข้อมูลสำคัญ เช่น
+            ชื่อผู้ใช้ รหัสผ่าน หมายเลขบัตรเครดิต หรือข้อมูลส่วนตัวอื่น ๆ
+        </p>
+
+        <p>
+            โดยมักปลอมตัวเป็นองค์กรที่น่าเชื่อถือ เช่น ธนาคาร
+            เว็บไซต์ช้อปปิ้ง หรือโซเชียลมีเดีย เพื่อให้เหยื่อเชื่อใจ
+            และกดลิงก์หรือกรอกข้อมูลลงไป
+        </p>
+
+        <!-- 🎬 VIDEO -->
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/faQtHaDmrkU"
+                allowfullscreen></iframe>
+        </div>
+
+        <h2>รูปแบบของ Phishing</h2>
+        <ul>
+            <li>อีเมลปลอม (Fake Email)</li>
+            <li>เว็บไซต์ปลอม (Fake Website)</li>
+            <li>SMS หลอกลวง (Smishing)</li>
+            <li>โทรศัพท์หลอกลวง (Vishing)</li>
+        </ul>
+
+        <h2>ตัวอย่างสถานการณ์</h2>
+        <p>
+            คุณได้รับอีเมลจาก “ธนาคาร” แจ้งว่าบัญชีมีปัญหา
+            และให้คลิกลิงก์เพื่อยืนยันตัวตน เมื่อกดเข้าไป
+            เว็บไซต์จะเหมือนของจริง แต่จริง ๆ แล้วเป็นเว็บปลอม
+            ที่เอาไว้ขโมยข้อมูลของคุณ
+        </p>
+
+        <h2>ผลกระทบ</h2>
+        <ul>
+            <li>ข้อมูลส่วนตัวถูกขโมย</li>
+            <li>เงินในบัญชีสูญหาย</li>
+            <li>บัญชีโซเชียลถูกแฮ็ก</li>
+            <li>ถูกนำข้อมูลไปใช้ในทางผิดกฎหมาย</li>
+        </ul>
+
+        <h2>วิธีป้องกัน</h2>
+
+        <ul>
+            <li>ตรวจสอบ URL เว็บไซต์ก่อนกรอกข้อมูลทุกครั้ง</li>
+            <li>ไม่คลิกลิงก์จากอีเมลหรือข้อความที่น่าสงสัย</li>
+            <li>ตั้งรหัสผ่านให้รัดกุม</li>
+            <li>ใช้ระบบยืนยันตัวตน 2 ขั้นตอน (2FA)</li>
+            <li>ติดตั้งโปรแกรมป้องกันไวรัส</li>
+        </ul>
+
+        <h2>ข้อควรจำ</h2>
+        <p>
+            ❗ องค์กรที่น่าเชื่อถือจะไม่ขอรหัสผ่านหรือข้อมูลสำคัญผ่านอีเมลหรือข้อความ
+            ❗ หากไม่แน่ใจ ควรติดต่อองค์กรนั้นโดยตรง
+        </p>
+
+        <!-- 💥 ลูกเล่นเพิ่ม -->
+        <div class="demo-box">
+            <h2>💻 ทดลอง Phishing</h2>
+            <p>ลองกดดูว่าคุณจะโดนหลอกไหม 👇</p>
+
+            <div class="fake-email">
+                <p>⚠️ ธนาคารแจ้ง: กรุณายืนยันบัญชีภายใน 24 ชม.</p>
+                <button onclick="showPopup()">ยืนยันบัญชี</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2>⚠️ นี่คือ Phishing!</h2>
+        <p>ถ้าเป็นของจริง คุณอาจเสียข้อมูลไปแล้ว</p>
+        <button onclick="closePopup()">เข้าใจแล้ว</button>
+    </div>
+</div>
+
+<footer style="text-align:center; padding:20px; color:#94a3b8;">
+    © 2026 Internet Security
+</footer>
+
+<script>
+function showPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+<script>
+function toggleMenu() {
+    document.querySelector(".menu-main").classList.toggle("active");
+}
+
+function toggleDropdown(e) {
+    e.preventDefault();
+    let dropdown = e.target.nextElementSibling;
+    dropdown.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
