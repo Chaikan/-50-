@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Security</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+    <h2>Internet Security</h2>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <ul class="menu-main">
+        <li><a href="index.html">หน้าแรก</a></li>
+
+        <li class="dropdown">
+            <a href="#" onclick="toggleDropdown(event)">เนื้อหา ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="phishing.html">Phishing</a></li>
+                <li><a href="password.html">Password</a></li>
+                <li><a href="virus.html">Virus</a></li>
+            </ul>
+        </li>
+
+        <li><a href="member.html">สมาชิก</a></li>
+        <li><a href="contact.html">ติดต่อ</a></li>
+    </ul>
+</nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div>
+            <h1>ความปลอดภัยบนอินเทอร์เน็ต</h1>
+            <p>เรียนรู้วิธีป้องกันตนเองจากภัยออนไลน์</p>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="container">
+        <div class="card">
+            <h2>ความสำคัญของความปลอดภัยบนอินเทอร์เน็ต</h2>
+            <p>อินเทอร์เน็ตมีความสำคัญในชีวิตประจำวัน การใช้งานอย่างปลอดภัยจึงเป็นสิ่งจำเป็น</p>
+            <iframe class="main-img" src="https://www.youtube.com/embed/7CDGHRnMVbQ" frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+
+            <div class="grid">
+                <a href="phishing.html" class="card-link">
+                    <div class="card pro-card">
+                        <h2>Phishing</h2>
+                        <p>คือการหลอกลวงทางอินเทอร์เน็ตที่ผู้ไม่หวังดีพยายามขโมยข้อมูลสำคัญ เช่น รหัสผ่าน เลขบัตรเครดิต
+                            หรือข้อมูลส่วนตัว</p>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+
+                <a href="password.html" class="card-link">
+                    <div class="card pro-card">
+                        <h2>รหัสผ่าน</h2>
+                        <p>ป้องกันไม่ให้คนอื่นเข้าถึงข้อมูลของเรา รักษาความเป็นส่วนตัวและความปลอดภัย</p>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+
+                <a href="virus.html" class="card-link">
+                    <div class="card pro-card">
+                        <h2>ไวรัส</h2>
+                        <p>คือโปรแกรมหรือโค้ดอันตรายที่ถูกสร้างขึ้นเพื่อทำลายหรือขโมยข้อมูลในเครื่องคอมพิวเตอร์หรือมือถือ
+                        </p>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+<script>
+function toggleMenu() {
+    document.querySelector(".menu-main").classList.toggle("active");
+}
+
+function toggleDropdown(e) {
+    e.preventDefault();
+    let dropdown = e.target.nextElementSibling;
+    dropdown.classList.toggle("show");
+}
+</script>
+        <footer class="site-footer">
+            © 2026 Internet Security
+        </footer>
+
+</body>
+
+</html>
